@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block pageHeader %}UCL{% endblock %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><strong>Listado de Ucl's</strong></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Definicion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ucl in ucls %}
+                        <tr>
+                            <td>{{ ucl.id }}</td>
+                            <td>{{ ucl.nombre }}</td>
+                            <td>{{ ucl.definicion }}</td>
+                            <td>
+                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="glyphicon glyphicon-trash edel" href="#"></a>                            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}

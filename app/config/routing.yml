@@ -1,0 +1,7 @@
+gt:
+    resource: "@GTBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+{% block pageHeader %}Competencia Conductual{% endblock %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><strong>Listado de Competencias Conductuales</strong></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Definicion</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for competencia in competencias %}
+                        <tr>
+                            <td>{{ competencia.id }}</td>
+                            <td>{{ competencia.nombre }}</td>
+                            <td>{{ competencia.definicion }}</td>
+                            <td>
+                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="glyphicon glyphicon-trash edel" href="#"></a>                            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+homepage:
+    path:     /
+    defaults: { _controller:GTBundle:Home:index }
+
+# LISTADOS #
+list_persona:
+    path:   /persona
+    defaults: { _controller:GTBundle:Persona:list}    
+list_perfil:
+    path:   /perfil
+    defaults: { _controller:GTBundle:Perfil:list}  
+list_empresa:
+    path:   /empresa
+    defaults: { _controller:GTBundle:Empresa:list}
+list_ucl:
+    path:   /ucl
+    defaults: { _controller:GTBundle:Ucl:list}
+list_competencia:
+    path:   /competenciaConductual
+    defaults: { _controller:GTBundle:CompetenciaConductual:list}  
+# FIN DE LISTADOS #
+
+# METODOS POST #
+create_perfil:
+    path:   /perfil/nuevo
+    defaults: { _controller:GTBundle:Perfil:create} 
+    #methods: POST
+    
+# FIN METODOS POST #

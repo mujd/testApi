@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+{% block pageHeader %}Persona{% endblock %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><strong>Listado de Personas</strong></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Rut</th>
+                        <th>Nombre Completo</th>
+                        <th>Correo</th>
+                        <th>Perfil</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for persona in personas %}
+                        <tr>
+                            <td>{{ persona.id }}</td>
+                            <td>{{ persona.rut }}</td>
+                            <td>{{ persona.nombre }} {{ persona.apellido_paterno }} {{ persona.apellido_materno }}</td>
+                            <td>{{ persona.correo }}</td>
+                            <td>{{ persona.perfil_id }}</td>
+                            <td>
+                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="glyphicon glyphicon-trash edel" href="#"></a>                            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}

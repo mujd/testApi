@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+{% block pageHeader %}Empresa{% endblock %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><strong>Listado de Empresas</strong></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Rut</th>
+                        <th>Giro</th>
+                        <th>Razon Social</th>
+                        <th>Dirección</th>
+                        <th>Comuna</th>
+                        <th>Telefono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empresa in empresas %}
+                        <tr>
+                            <td>{{ empresa.id }}</td>
+                            <td>{{ empresa.rut }}</td>
+                            <td>{{ empresa.giro }}</td>
+                            <td>{{ empresa.razon_social }}</td>
+                            <td>{{ empresa.direccion }}</td>
+                            <td>{{ empresa.comuna }}</td>
+                            <td>{{ empresa.telefono }}</td>
+                            <td>
+                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="glyphicon glyphicon-trash edel" href="#"></a>                            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+{% block pageHeader %}Perfil{% endblock %}
+{% block body %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><strong>Listado de Perfiles</strong></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+            <table id="example" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Objetivo</th>
+                        <th>Reporta</th>
+                        <th>Tareas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for perfil in perfiles %}
+                        <tr>
+                            <td>{{ perfil.id }}</td>
+                            <td>{{ perfil.nombre }}</td>
+                            <td>{{ perfil.objetivo }}</td>
+                            <td>{{ perfil.reporta }}</td>
+                            <td>{{ perfil.tareas }}</td>
+                            <td>
+                                <a class="glyphicon glyphicon-pencil" href="#"></a>
+                                <a class="glyphicon glyphicon-trash edel" href="#"></a>                            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}
