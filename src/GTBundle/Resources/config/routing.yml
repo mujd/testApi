@@ -21,9 +21,16 @@ list_competencia:
 # FIN DE LISTADOS #
 
 # METODOS POST #
+add_perfil:
+    path:   /perfil/add
+    defaults: { _controller:GTBundle:Perfil:add}
+    options:
+        expose: true
 create_perfil:
-    path:   /perfil/nuevo
-    defaults: { _controller:GTBundle:Perfil:create} 
+    path:   /perfil/create
+    defaults: { _controller:GTBundle:Perfil:create}
+    options:
+        expose: true
     #methods: POST
     
 # FIN METODOS POST #
