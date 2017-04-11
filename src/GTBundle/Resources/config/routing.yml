@@ -17,20 +17,70 @@ list_ucl:
     defaults: { _controller:GTBundle:Ucl:list}
 list_competencia:
     path:   /competenciaConductual
-    defaults: { _controller:GTBundle:CompetenciaConductual:list}  
+    defaults: { _controller:GTBundle:CompetenciaConductual:list}
+list_curso:
+    path:   /curso
+    defaults: { _controller:GTBundle:Curso:list}     
+list_evaluacion:
+    path:   /evaluacion
+    defaults: { _controller:GTBundle:Evaluacion:list}     
 # FIN DE LISTADOS #
 
 # METODOS POST #
-add_perfil:
+perfil_add:
     path:   /perfil/add
     defaults: { _controller:GTBundle:Perfil:add}
     options:
         expose: true
-create_perfil:
-    path:   /perfil/create
-    defaults: { _controller:GTBundle:Perfil:create}
+persona_add:
+    path:   /persona/add
+    defaults: { _controller:GTBundle:Persona:add}
     options:
         expose: true
-    #methods: POST
-    
+empresa_add:
+    path:   /empresa/add
+    defaults: { _controller:GTBundle:Empresa:add}
+    options:
+        expose: true
+ucl_add:
+    path:   /ucl/add
+    defaults: { _controller:GTBundle:Ucl:add}
+    options:
+        expose: true
+competencia_add:
+    path:   /competenciaConductual/add
+    defaults: { _controller:GTBundle:CompetenciaConductual:add}
+    options:
+        expose: true
+curso_add:
+    path:   /curso/add
+    defaults: { _controller:GTBundle:Curso:add}
+    options:
+        expose: true
+evaluacion_add:
+    path:   /evaluacion/add
+    defaults: { _controller:GTBundle:Evaluacion:add}
+    options:
+        expose: true
 # FIN METODOS POST #
+
+# METODOS DELETE #
+perfil_delete:
+    path:   /perfil/delete/{id}
+    defaults: { _controller:GTBundle:Perfil:delete}
+persona_delete:
+    path:   /persona/delete/{id}
+    defaults: { _controller:GTBundle:Persona:delete}
+empresa_delete:
+    path:   /empresa/delete/{id}
+    defaults: { _controller:GTBundle:Empresa:delete}
+competencia_delete:
+    path:   /competenciaConductual/delete/{id}
+    defaults: { _controller:GTBundle:CompetenciaConductual:delete}
+ucl_delete:
+    path:   /ucl/delete/{id}
+    defaults: { _controller:GTBundle:Perfil:delete}
+curso_delete:
+    path:   /curso/delete/{id}
+    defaults: { _controller:GTBundle:Perfil:delete}
+# FIN METODOS DELETE #

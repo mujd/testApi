@@ -9,6 +9,8 @@ class Perfil {
     private $objetivo;
     private $reporta;
     private $tareas;
+    private $ucl;
+    private $competencia;
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;
@@ -40,6 +42,20 @@ class Perfil {
 
     public function getTareas() {
         return $this->tareas;
+    }
+    public function setUcl($ucl) {
+        $this->ucl = $ucl;
+    }
+
+    public function getUcl() {
+        return $this->ucl;
+    }
+    public function setCompetencia($competencia) {
+        $this->competencia = $competencia;
+    }
+
+    public function getCompetencia() {
+        return $this->competencia;
     }
 
 }

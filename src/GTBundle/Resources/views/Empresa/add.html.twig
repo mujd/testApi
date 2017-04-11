@@ -1,0 +1,45 @@
+{% extends 'layoutWindow.html.twig' %}
+
+{% block modal %}
+    {{ form_start(form) }}
+    <div class="form-group">
+    {{ form_label(form.rut) }}
+    {{ form_widget(form.rut, {'attr' : {'placeholder' : 'Rut', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.rut) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.giro) }}
+    {{ form_widget(form.giro, {'attr' : {'placeholder' : 'Giro', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.giro) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.razonSocial) }}
+    {{ form_widget(form.razonSocial, {'attr' : {'placeholder' : 'Razon Social', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.razonSocial) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.direccion) }}
+    {{ form_widget(form.direccion, {'attr' : {'placeholder' : 'Direccion', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.direccion) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.comuna) }}
+    {{ form_widget(form.comuna, {'attr' : {'placeholder' : 'Comuna', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.comuna) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.telefono) }}
+    {{ form_widget(form.telefono, {'attr' : {'placeholder' : 'Telefono', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.telefono) }}</span>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-right">  
+            {{ form_widget(form.save, {'label' : 'Guardar', 'attr' : {  'class': 'form-control', 'class': 'btn btn-info'}}) }}
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal" onclick="parent.cerrarEmpresa()">Cerrar</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

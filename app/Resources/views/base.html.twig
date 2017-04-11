@@ -30,6 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             {#<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">#}
             <link rel="stylesheet" href={{ asset("public/css/dataTables.bootstrap.min.css")}}>
             <link rel="stylesheet" href="{{ asset('public/css/dhtmlxwindows.css') }}" />
+            <link rel="stylesheet" href="{{ asset('public/css/style.css') }}" />
         {% endblock %}
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -277,6 +278,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li><a href={{ path('list_empresa')}}>Empresa</a></li>
                                 <li><a href={{ path('list_ucl')}}>Ucl</a></li>
                                 <li><a href={{ path('list_competencia')}}>Competencia Conductual</a></li>
+                                <li><a href={{ path('list_curso')}}>Cursos</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -286,7 +288,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Registro</a></li>
+                                <li><a href={{ path('list_evaluacion')}}>Registro</a></li>
                                 <li><a href="#">Evaluar</a></li>
                             </ul>
                         </li>
@@ -434,7 +436,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     <script type="text/javascript" src="{{ asset('public/js/dhtmlxwindows.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/js/perfilModal.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('public/js/maestrosModal.js') }}"></script>
+    
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
