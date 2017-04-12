@@ -42,7 +42,7 @@ class PerfilType extends AbstractType {
                     'multiple' => true,
                     'expanded' => true,
                 ))
-                ->add('competencia', ChoiceType::class, array(
+                ->add('competenciaConductual', ChoiceType::class, array(
                     'choices' => $choicesCompetencia,
                     'multiple' => true,
                     'expanded' => true,

@@ -18,6 +18,26 @@ function registrarPerfil() {
         id.progressOff();
     });
 }
+
+function actualizarPerfil(id) {
+
+    wins = new dhtmlXWindows();
+//    skin = "dhx_terrace";
+//    wins.setSkin(skin);
+    winId = "winPerfilActualizar";
+    wins.createWindow(winId, 1, 1, 780, 530);
+    wins.window(winId).setText("Modificar Perfil");
+    wins.window(winId).setModal(true);
+    wins.window(winId).button("minmax").disable();
+    wins.window(winId).centerOnScreen();
+    wins.window(winId).progressOn();
+    wins.window(winId).setIconCss("without_icon");
+    var url = Routing.generate('perfil_update', {'id': id});
+    wins.window(winId).attachURL(url);
+    wins.window(winId).attachEvent("onContentLoaded", function (id) {
+        id.progressOff();
+    });
+}
 function cerrarPerfil() {
     winId = "winRegistrarPerfil";
 
@@ -123,7 +143,7 @@ function registrarCompetenciaConductual() {
     wins.window(winId).centerOnScreen();
     wins.window(winId).progressOn();
     wins.window(winId).setIconCss("without_icon");
-    var url = Routing.generate('competencia_add');
+    var url = Routing.generate('competenciaConductual_add');
     wins.window(winId).attachURL(url);
     wins.window(winId).attachEvent("onContentLoaded", function (id) {
         id.progressOff();

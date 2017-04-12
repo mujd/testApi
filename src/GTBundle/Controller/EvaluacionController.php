@@ -11,11 +11,12 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use GuzzleHttp\Client;
 
 class EvaluacionController extends Controller {
 
     public function listAction(Request $request) {
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
         $r = $client->request('GET', 'http://138.197.7.205/gt/api/web/evaluacion');
         $data = json_decode($r->getBody()->getContents(), true);
         return $this->render('GTBundle:Evaluacion:list.html.twig', array('evaluaciones' => $data));
@@ -40,5 +41,15 @@ class EvaluacionController extends Controller {
         return $this->render('GTBundle:Evaluacion:add.html.twig', array(
                     'form' => $form->createView()));
     }
-
+    
+    public function updateAction($id){
+        
+    }
+    
+    public function deleteAction($id) {        
+        $client = new Client;
+        $r = $client->delete('http://138.197.7.205/gt/api/web/evaluacion/'.$id);
+        $this->addFlash('mensaje', 'La evaluación fue Eliminada con exito.');
+        return $this->redirectToRoute('evaluacion_list');
+    }
 }

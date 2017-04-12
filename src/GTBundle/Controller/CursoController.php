@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use GuzzleHttp\Client;
 
 class CursoController extends Controller
 {
@@ -31,6 +32,15 @@ class CursoController extends Controller
         return $this->render('GTBundle:Curso:add.html.twig', array(
                     'form' => $form->createView()));
     }
-
     
+    public function updateAction($id){
+        
+    }
+
+    public function deleteAction($id) {        
+        $client = new Client;
+        $r = $client->delete('http://138.197.7.205/gt/api/web/curso/'.$id);
+        $this->addFlash('mensaje', 'El curso fue eliminado con exito.');
+        return $this->redirectToRoute('curso_list');
+    }
 }

@@ -10,7 +10,7 @@ class Perfil {
     private $reporta;
     private $tareas;
     private $ucl;
-    private $competencia;
+    private $competenciaConductual;
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;
@@ -50,12 +50,12 @@ class Perfil {
     public function getUcl() {
         return $this->ucl;
     }
-    public function setCompetencia($competencia) {
-        $this->competencia = $competencia;
+    public function setCompetenciaConductual($competenciaConductual) {
+        $this->competenciaConductual = $competenciaConductual;
     }
 
-    public function getCompetencia() {
-        return $this->competencia;
+    public function getCompetenciaConductual() {
+        return $this->competenciaConductual;
     }
 
 }

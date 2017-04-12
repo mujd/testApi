@@ -11,7 +11,12 @@
     {{ form_label(form.definicion) }}
     {{ form_widget(form.definicion, {'attr' : {'placeholder' : 'Definición', 'class': 'form-control'}}) }}
     <span >{{ form_errors(form.definicion) }}</span>
-    </div>    
+    </div>  
+    {#<div class="form-group">
+        {{ form_label(form.indicador) }}
+        {{ form_widget(form.indicador, {'attr' : {'class': 'form-control'}}) }}
+        <span >{{ form_errors(form.indicador) }}</span>
+    </div>#}
     <br>
     <div class="row">
         <div class="col-md-12 text-right">  

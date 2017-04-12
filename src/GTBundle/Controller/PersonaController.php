@@ -5,11 +5,6 @@ namespace GTBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use GTBundle\Form\PersonaType;
 use GTBundle\Entity\Persona;
 use GTBundle\Controller\PerfilController;
@@ -18,7 +13,7 @@ use GuzzleHttp\Client;
 class PersonaController extends Controller {
 
     public function listAction(Request $request) {
-        $client = new \GuzzleHttp\Client();
+        $client = new Client();
         $r = $client->request('GET', 'http://138.197.7.205/gt/api/web/persona');
         $data = json_decode($r->getBody()->getContents(), true);
         return $this->render('GTBundle:Persona:list.html.twig', array('personas' => $data));
@@ -48,13 +43,16 @@ class PersonaController extends Controller {
         return $this->render('GTBundle:Persona:add.html.twig', array(
                     'form' => $form->createView()));
     }
-
-    public function deleteAction($id) {
+    
+    public function updateAction($id){
         
+    }
+    
+    public function deleteAction($id) {        
         $client = new Client;
-        $r = $client->delete('http://138.197.7.205/gt/api/web/persona/{id}' + [$id]);
+        $r = $client->delete('http://138.197.7.205/gt/api/web/persona/'.$id);
         $this->addFlash('mensaje', 'La Persona fue Eliminado con exito.');
-        return $this->redirectToRoute('list_persona');
+        return $this->redirectToRoute('persona_list');
     }
 
 }

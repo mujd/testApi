@@ -3,25 +3,25 @@ homepage:
     defaults: { _controller:GTBundle:Home:index }
 
 # LISTADOS #
-list_persona:
+persona_list:
     path:   /persona
     defaults: { _controller:GTBundle:Persona:list}    
-list_perfil:
+perfil_list:
     path:   /perfil
     defaults: { _controller:GTBundle:Perfil:list}  
-list_empresa:
+empresa_list:
     path:   /empresa
     defaults: { _controller:GTBundle:Empresa:list}
-list_ucl:
+ucl_list:
     path:   /ucl
     defaults: { _controller:GTBundle:Ucl:list}
-list_competencia:
+competenciaConductual_list:
     path:   /competenciaConductual
     defaults: { _controller:GTBundle:CompetenciaConductual:list}
-list_curso:
+curso_list:
     path:   /curso
     defaults: { _controller:GTBundle:Curso:list}     
-list_evaluacion:
+evaluacion_list:
     path:   /evaluacion
     defaults: { _controller:GTBundle:Evaluacion:list}     
 # FIN DE LISTADOS #
@@ -47,7 +47,7 @@ ucl_add:
     defaults: { _controller:GTBundle:Ucl:add}
     options:
         expose: true
-competencia_add:
+competenciaConductual_add:
     path:   /competenciaConductual/add
     defaults: { _controller:GTBundle:CompetenciaConductual:add}
     options:
@@ -64,6 +64,45 @@ evaluacion_add:
         expose: true
 # FIN METODOS POST #
 
+# METODOS PUT #
+perfil_update:
+    path:   /perfil/update/{id}
+    defaults: { _controller:GTBundle:Perfil:update}
+    options:
+        expose: true
+persona_update:
+    path:   /persona/update/{id}
+    defaults: { _controller:GTBundle:Persona:update}
+    options:
+        expose: true
+empresa_update:
+    path:   /empresa/update/{id}
+    defaults: { _controller:GTBundle:Empresa:update}
+    options:
+        expose: true
+ucl_update:
+    path:   /ucl/update/{id}
+    defaults: { _controller:GTBundle:Ucl:update}
+    options:
+        expose: true
+competenciaConductual_update:
+    path:   /competenciaConductual/update/{id}
+    defaults: { _controller:GTBundle:CompetenciaConductual:update}
+    options:
+        expose: true
+curso_update:
+    path:   /curso/update/{id}
+    defaults: { _controller:GTBundle:Curso:update}
+    options:
+        expose: true
+evaluacion_update:
+    path:   /evaluacion/update/{id}
+    defaults: { _controller:GTBundle:Evaluacion:update}
+    options:
+        expose: true
+# FIN METODOS POST #
+
+
 # METODOS DELETE #
 perfil_delete:
     path:   /perfil/delete/{id}
@@ -74,7 +113,7 @@ persona_delete:
 empresa_delete:
     path:   /empresa/delete/{id}
     defaults: { _controller:GTBundle:Empresa:delete}
-competencia_delete:
+competenciaConductual_delete:
     path:   /competenciaConductual/delete/{id}
     defaults: { _controller:GTBundle:CompetenciaConductual:delete}
 ucl_delete:
