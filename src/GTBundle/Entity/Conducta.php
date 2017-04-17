@@ -2,12 +2,12 @@
 
 namespace GTBundle\Entity;
 
-class Ucl {
+class Conducta {
 
     private $id;
     private $nombre;
     private $definicion;
-    private $actividadClave;
+    private $indicador;
 
     public function getId() {
         return $this->id;
@@ -28,13 +28,12 @@ class Ucl {
     public function getDefinicion() {
         return $this->definicion;
     }
-
-    public function setActividadClave($actividadClave) {
-        $this->actividadClave = $actividadClave;
+    public function setIndicador($indicador) {
+        $this->indicador = $indicador;
     }
 
-    public function getActividadClave() {
-        return $this->actividadClave;
+    public function getIndicador() {
+        return $this->indicador;
     }
 
     public function __toString() {

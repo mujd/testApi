@@ -2,15 +2,29 @@
 
 namespace GTBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Perfil {
 
-    //private $id;
+    private $id;
     private $nombre;
     private $objetivo;
     private $reporta;
     private $tareas;
     private $ucl;
-    private $competenciaConductual;
+    private $conducta;
+    
+    public function __construct() {
+        $this->ucl = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    public function setId($id) {
+        $this->id = $id;
+    }
+    
+    public function getId() {
+        return $this->id;
+    }
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;
@@ -50,12 +64,16 @@ class Perfil {
     public function getUcl() {
         return $this->ucl;
     }
-    public function setCompetenciaConductual($competenciaConductual) {
-        $this->competenciaConductual = $competenciaConductual;
+    public function setConducta($conducta) {
+        $this->conducta = $conducta;
     }
 
-    public function getCompetenciaConductual() {
-        return $this->competenciaConductual;
+    public function getConducta() {
+        return $this->conducta;
     }
-
+    public function __toString()
+    {
+        return $this->getCompetenciaNombre();
+    }
+    
 }

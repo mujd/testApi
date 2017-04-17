@@ -8,47 +8,50 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use GTBundle\Entity\Conducta;
+use GTBundle\Form\ConductaType;
 use GuzzleHttp\Client;
 
-class UclController extends Controller
-{
-    public function listAction(Request $request)
-    {
+class ConductaController extends Controller {
+
+    public function listAction(Request $request) {
         $client = new Client();
-        $r = $client->request('GET', 'http://138.197.7.205/gt/api/web/ucl');
+        $r = $client->request('GET', 'http://138.197.7.205/gt/api/web/conducta');
         $data = json_decode($r->getBody()->getContents(), true);
-        return $this->render('GTBundle:Ucl:list.html.twig', array('ucls' => $data));
+        return $this->render('GTBundle:Conducta:list.html.twig', array('conductas' => $data));
     }
 
-    public function addAction() {
-         $ucl = new Ucl();
-        $form = $this->createForm(UclType::class, $ucl);
+    public function addAction(Request $request) {
+        $conducta = new Conducta();
+        $form = $this->createForm(ConductaType::class, $conducta);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $client = new Client;
-            $r = $client->post('http://138.197.7.205/gt/api/web/ucl', ['json' => [
+            $r = $client->post('http://138.197.7.205/gt/api/web/conducta', ['json' => [
                     "nombre" => $form->get("nombre")->getData(),
                     "definicion" => $form->get("definicion")->getData(),
                     "indicadores" => [$form->get("indicador")->getData()]
             ]]);
 
 
-            return $this->redirectToRoute("ucl_add");
+            return $this->redirectToRoute("conducta_add");
         }
-        return $this->render('GTBundle:Ucl:add.html.twig', array(
+
+        return $this->render('GTBundle:Conducta:add.html.twig', array(
                     'form' => $form->createView()));
     }
     
     public function updateAction($id){
         
     }
-    
-    public function deleteAction($id) {        
+
+    public function deleteAction($id) {
         $client = new Client;
-        $r = $client->delete('http://138.197.7.205/gt/api/web/ucl/'.$id);
-        $this->addFlash('mensaje', 'La Ucl fue Eliminada con exito.');
-        return $this->redirectToRoute('ucl_list');
+        $r = $client->delete('http://138.197.7.205/gt/api/web/conducta/' . $id);
+        $this->addFlash('mensaje', 'La competencia conductual fue Eliminada con exito.');
+        return $this->redirectToRoute('conducta_list');
     }
+
 }

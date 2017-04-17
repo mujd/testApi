@@ -15,9 +15,9 @@ empresa_list:
 ucl_list:
     path:   /ucl
     defaults: { _controller:GTBundle:Ucl:list}
-competenciaConductual_list:
-    path:   /competenciaConductual
-    defaults: { _controller:GTBundle:CompetenciaConductual:list}
+conducta_list:
+    path:   /conducta
+    defaults: { _controller:GTBundle:Conducta:list}
 curso_list:
     path:   /curso
     defaults: { _controller:GTBundle:Curso:list}     
@@ -47,9 +47,9 @@ ucl_add:
     defaults: { _controller:GTBundle:Ucl:add}
     options:
         expose: true
-competenciaConductual_add:
-    path:   /competenciaConductual/add
-    defaults: { _controller:GTBundle:CompetenciaConductual:add}
+conducta_add:
+    path:   /conducta/add
+    defaults: { _controller:GTBundle:Conducta:add}
     options:
         expose: true
 curso_add:
@@ -70,6 +70,11 @@ perfil_update:
     defaults: { _controller:GTBundle:Perfil:update}
     options:
         expose: true
+perfil_edit:
+    path:   /perfil/edit/{id}
+    defaults: { _controller:GTBundle:Perfil:edit}
+    options:
+        expose: true
 persona_update:
     path:   /persona/update/{id}
     defaults: { _controller:GTBundle:Persona:update}
@@ -85,9 +90,9 @@ ucl_update:
     defaults: { _controller:GTBundle:Ucl:update}
     options:
         expose: true
-competenciaConductual_update:
-    path:   /competenciaConductual/update/{id}
-    defaults: { _controller:GTBundle:CompetenciaConductual:update}
+conducta_update:
+    path:   /conducta/update/{id}
+    defaults: { _controller:GTBundle:Conducta:update}
     options:
         expose: true
 curso_update:
@@ -113,13 +118,16 @@ persona_delete:
 empresa_delete:
     path:   /empresa/delete/{id}
     defaults: { _controller:GTBundle:Empresa:delete}
-competenciaConductual_delete:
-    path:   /competenciaConductual/delete/{id}
-    defaults: { _controller:GTBundle:CompetenciaConductual:delete}
+conducta_delete:
+    path:   /conducta/delete/{id}
+    defaults: { _controller:GTBundle:Conducta:delete}
 ucl_delete:
     path:   /ucl/delete/{id}
-    defaults: { _controller:GTBundle:Perfil:delete}
+    defaults: { _controller:GTBundle:Ucl:delete}
 curso_delete:
     path:   /curso/delete/{id}
-    defaults: { _controller:GTBundle:Perfil:delete}
+    defaults: { _controller:GTBundle:Curso:delete}
+evaluacion_delete:
+    path:   /evaluacion/delete/{id}
+    defaults: { _controller:GTBundle:Evaluacion:delete}
 # FIN METODOS DELETE #

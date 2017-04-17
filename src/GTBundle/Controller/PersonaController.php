@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use GTBundle\Form\PersonaType;
 use GTBundle\Entity\Persona;
-use GTBundle\Controller\PerfilController;
+use GTBundle\Controller\PersonaController;
 use GuzzleHttp\Client;
 
 class PersonaController extends Controller {
@@ -44,8 +44,36 @@ class PersonaController extends Controller {
                     'form' => $form->createView()));
     }
     
-    public function updateAction($id){
+    public function updateAction(Request $request,$id){
+        $personaId = $id;
+        $client = new Client();
+        $r = $client->request('GET', 'http://138.197.7.205/gt/api/web/persona/'.$personaId);
+        $persona = json_decode($r->getBody()->getContents(), true);
         
+//        echo '<pre>';
+//        echo print_r($perfil);
+//        echo '</pre>';
+        
+        $form = $this->createForm(PersonaType::class, $persona);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $client = new Client;
+            $r = $client->request('PUT', 'http://138.197.7.205/gt/api/web/persona/'.$id, ['json' => [
+                    "rut" => $form->get("rut")->getData(),
+                    "nombre" => $form->get("nombre")->getData(),
+                    "apellidoPaterno" => $form->get("apellidoPaterno")->getData(),
+                    "apellidoMaterno" => $form->get("apellidoMaterno")->getData(),
+                    "correo" => $form->get("correo")->getData(),
+                    "perfilId" => $form->get("perfilId")->getData()
+            ]]);
+
+            return $this->redirectToRoute("persona_update");
+        }
+
+        return $this->render('GTBundle:Persona:update.html.twig', array(
+                    'form' => $form->createView()));
     }
     
     public function deleteAction($id) {        

@@ -1,0 +1,47 @@
+{% extends 'layoutWindow.html.twig' %}
+
+{% block modal %}
+    {{ form_start(form) }}
+    <div class="form-group">
+    {{ form_label(form.rut) }}
+    {{ form_widget(form.rut, {'attr' : {'placeholder' : 'Rut', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.rut) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.nombre) }}
+    {{ form_widget(form.nombre, {'attr' : {'placeholder' : 'Nombre', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.nombre) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.apellidoPaterno) }}
+    {{ form_widget(form.apellidoPaterno, {'attr' : {'placeholder' : 'Apellido Paterno', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.apellidoPaterno) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.apellidoMaterno) }}
+    {{ form_widget(form.apellidoMaterno, {'attr' : {'placeholder' : 'Apellido Materno', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.apellidoMaterno) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.correo) }}
+    {{ form_widget(form.correo, {'attr' : {'placeholder' : 'Correo', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.correo) }}</span>
+    </div>
+    <div class="form-group">
+    {{ form_label(form.perfilId) }}
+    {{ form_widget(form.perfilId, {'attr' : {'placeholder' : 'Perfil', 'class': 'form-control'}}) }}
+    <span >{{ form_errors(form.perfilId) }}</span>
+    </div>
+    
+   
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-right">  
+            {{ form_widget(form.save, {'label' : 'Guardar', 'attr' : {  'class': 'form-control', 'class': 'btn btn-info'}}) }}
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal" onclick="parent.cerrarPersona()">Cerrar</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
